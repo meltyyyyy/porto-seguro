@@ -1,0 +1,20 @@
+# Configuration for Kaggle
+
+- name: Basic packages
+  apt: name={{ item }} state=latest update_cache=yes
+  become: yes
+  with_items:
+     - git
+     - vim
+     - emacs
+     - build-essential
+     - mosh
+     - tmux
+     - supervisor
+     - htop
+
+- name: Google Cloud Platform SDK # run '$gcloud init' after installation
+  apt: name={{ item }} state=latest update_cache=yes
+  become: yes
+  with_items:
+     - google-cloud-sdk
